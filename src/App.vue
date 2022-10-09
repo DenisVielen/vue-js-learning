@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <user-list :users="users"/>
+    <user-list
+        :users="users"
+        :current-date="currentDate"
+    />
     <user-form @create="createUser"/>
   </div>
 </template>
@@ -30,16 +33,14 @@ export default {
           avatar: 'https://cdn.mos.cms.futurecdn.net/CAZ6JXi6huSuN4QGE627NR-320-80.jpg'
         }
       ],
-
+      currentDate: null
     }
-  },
-  computed: {
-
   },
   methods: {
     createUser(user) {
       this.users.unshift(user)
-    }
+      this.currentDate = new Date()
+    },
   },
 }
 </script>

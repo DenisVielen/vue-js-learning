@@ -21,15 +21,15 @@ export default {
       user: {
         name: '',
         avatar: ''
-      }
+      },
     }
   },
   methods: {
     createUser() {
-      this.$emit('create', this.user, 'ya loh')
+      this.$emit('create', this.user)
       this.user = {
         name: '',
-        avatar: ''
+        avatar: '',
       }
     },
   }

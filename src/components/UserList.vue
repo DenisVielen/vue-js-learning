@@ -25,11 +25,22 @@ export default {
     users: {
       type: Array,
       required: true
+    },
+    currentDate: {
+      type: Number,
+      required: true
     }
   },
   data() {
     return {
-      userCounter: 0,
+      userCounter: 0
+    }
+  },
+  watch: {
+    currentDate(newValue, oldValue){
+      if (newValue !== oldValue){
+        this.userCounter = 0
+      }
     }
   },
   computed: {
@@ -49,6 +60,9 @@ export default {
       if (this.userCounter !== 0) {
         return this.userCounter--
       }
+    },
+    changeUserCounter(){
+      this.$emit('change', this.userCounter)
     }
   }
 }
