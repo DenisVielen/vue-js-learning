@@ -1,10 +1,25 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id="app">{{ $store.state.counter }}
+    <user-list/>
+    <user-form @create="createUser"/>
+  </div>
 </template>
+
+<script>
+import UserList from "@/components/UserList";
+import UserForm from "@/components/UserForm";
+export default {
+  components: {
+    UserForm, UserList
+  },
+  name: 'App',
+  computed: {
+  },
+  methods: {
+
+  },
+}
+</script>
 
 <style>
 #app {
@@ -13,18 +28,10 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
